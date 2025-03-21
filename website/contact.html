@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact & Enrollment - My Little Steps Playschool</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Inline styles to match index.html and about.html nav bar -->
+  <style>
+    header {
+      background-color: #fff;
+      padding: 0px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      color: #0E2D40;
+      margin-bottom: 0;
+      font-family: 'Nunito', 'Comic Sans MS', 'Marker Felt', sans-serif;
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-menu li {
+      margin-left: 25px;
+    }
+    .nav-menu li a {
+      font-family: 'Open Sans', 'Arial', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #F8A77D;
+    }
+    .nav-menu .btn {
+      background-color: #F8A77D;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .nav-menu .btn:hover {
+      background-color: #0E2D40;
+      transform: translateY(-3px);
+    }
+    .mobile-menu {
+      display: none;
+      font-size: 2rem;
+      color: #0E2D40;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-menu li {
+        margin: 15px 0;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.png.jpg" alt="My Little Steps Playschool Logo" />
+          <h1>My Little Steps</h1>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="program.html">Programs</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="btn">Enroll Now</a></li>
+        </ul>
+        <div class="mobile-menu">☰</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contact & Enrollment Section -->
+  <section class="contact" style="padding: 100px 0;">
+    <div class="container">
+      <h2>Contact Us & Enroll</h2>
+      <p>
+        Connect with us on our social platforms or enroll your child by
+        selecting a program below and sending us your details.
+      </p>
+      
+      <!-- Social Platforms -->
+      <div class="contact-platforms" style="margin-bottom: 40px;">
+        <h3>Our Social Platforms</h3>
+        <ul style="list-style: none; display: flex; gap: 15px; padding: 0;">
+          <li>
+            <a href="https://www.facebook.com/YourSchool" target="_blank">Facebook</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/YourSchool" target="_blank">Twitter</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/YourSchool" target="_blank">Instagram</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/school/YourSchool" target="_blank">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/YourSchool" target="_blank">YouTube</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Enrollment Form -->
+      <div
+        class="enrollment-form"
+        style="background-color: var(--light-color); padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+      >
+        <h3>Enroll Your Child</h3>
+        <form action="submit_form.php" method="post">
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="program" style="display: block; margin-bottom: 5px;"
+              >Select Program</label
+            >
+            <select
+              id="program"
+              name="program"
+              required
+              style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"
+            >
+              <option value="">-- Choose a Program --</option>
+              <option value="toddler">Toddler Program</option>
+              <option value="preschool">Preschool Program</option>
+              <option value="pre-k">Pre-K Program</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="name" style="display: block; margin-bottom: 5px;"
+              >Parent's Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              required
+              style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"
+            />
+          </div>
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="email" style="display: block; margin-bottom: 5px;"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"
+            />
+          </div>
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="phone" style="display: block; margin-bottom: 5px;"
+              >Phone Number</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Your Phone Number"
+              style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"
+            />
+          </div>
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="message" style="display: block; margin-bottom: 5px;"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Your Query or Message"
+              style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h3>My Little Steps Playschool</h3>
+        <p>
+          Our School is dedicated to fostering an environment where learning
+          meets creativity and excellence.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="program.html">Programs</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/YourSchool" target="_blank">Facebook</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/YourSchool" target="_blank">Twitter</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/YourSchool" target="_blank">Instagram</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/school/YourSchool" target="_blank">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2025 My Little Steps Playschool. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-menu a').forEach(anchor => {
+      anchor.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>

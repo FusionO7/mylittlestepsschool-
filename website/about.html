@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - My Little Steps Playschool</title>
+  <style>
+    /* Global Variables using our previous scheme */
+    :root {
+      --primary-color: #8DD8CF;     /* Teal */
+      --secondary-color: #F8A77D;   /* Coral */
+      --accent-color: #0E2D40;      /* Dark navy */
+      --background-color: #F9F2E2;  /* Cream */
+      --text-color: #333;
+      --light-color: #fff;
+      --font-primary: 'Nunito', 'Comic Sans MS', 'Marker Felt', sans-serif;
+      --font-secondary: 'Open Sans', 'Arial', sans-serif;
+    }
+    
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-secondary);
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--light-color);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Headings */
+    h1, h2, h3 {
+      font-family: var(--font-primary);
+      color: var(--accent-color);
+      margin-bottom: 20px;
+    }
+    
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.6rem; }
+    
+    p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: var(--text-color);
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--accent-color);
+      transition: color 0.3s ease;
+    }
+    
+    a:hover { color: var(--secondary-color); }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary-color);
+      color: var(--light-color);
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--light-color);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+    
+    .logo h1 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-bottom: 0;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    .nav-menu li { margin-left: 25px; }
+    
+    .nav-menu li a {
+      font-family: var(--font-secondary);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .mobile-menu {
+      display: none;
+      font-size: 2rem;
+      color: var(--accent-color);
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--light-color);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      .nav-menu.active { display: flex; }
+      .nav-menu li {
+        margin: 15px 0;
+        text-align: center;
+      }
+    }
+    
+    /* Hero Section */
+    .about-hero {
+      text-align: center;
+      padding: 80px 0;
+      background-color: var(--secondary-color);
+      background-image: url('/api/placeholder/1200/400');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      position: relative;
+      margin-top: 90px; /* Adjusted for fixed header */
+    }
+    
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(249, 242, 226, 0.7);
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--accent-color);
+    }
+    
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+    
+    /* Rest of your existing styles remain unchanged */
+    .welcome-section { padding: 60px 0; text-align: center; }
+    .welcome-title { position: relative; display: inline-block; margin-bottom: 30px; }
+    .welcome-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    .welcome-text { max-width: 800px; margin: 0 auto; }
+    .vision-section { padding: 60px 0; background-color: var(--background-color); text-align: center; }
+    .vision-section h2 { margin-bottom: 20px; }
+    .vision-text { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
+    .philosophy-section { padding: 80px 0; background-color: var(--light-color); }
+    .philosophy-container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .philosophy-image { flex: 1; min-width: 300px; padding: 20px; }
+    .philosophy-image img { width: 100%; border-radius: 10px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+    .philosophy-content { flex: 1; min-width: 300px; padding: 20px; }
+    .philosophy-title { position: relative; margin-bottom: 30px; }
+    .philosophy-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    .values-section { padding: 80px 0; text-align: center; background-color: var(--background-color); }
+    .values-title { position: relative; display: inline-block; margin-bottom: 50px; }
+    .values-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    .values-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .value-card {
+      flex: 0 0 calc(33.333% - 30px);
+      min-width: 250px;
+      padding: 30px;
+      background-color: var(--light-color);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .value-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
+    .value-icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
+    .value-title { margin-bottom: 15px; }
+    .founders-section { padding: 80px 0; background-color: var(--light-color); text-align: center; }
+    .founders-title { position: relative; display: inline-block; margin-bottom: 50px; }
+    .founders-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    .founders-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+    .founder-card {
+      flex: 0 0 calc(50% - 40px);
+      min-width: 280px;
+      max-width: 400px;
+      background-color: var(--light-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+    }
+    .founder-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
+    .founder-image { width: 100%; height: 300px; object-fit: cover; }
+    .founder-info { padding: 20px; text-align: left; }
+    .founder-name { margin-bottom: 10px; font-size: 1.6rem; }
+    .founder-title { color: var(--primary-color); font-weight: 600; margin-bottom: 15px; }
+    .cta-section { padding: 60px 0; text-align: center; background-color: var(--accent-color); }
+    .cta-title { margin-bottom: 30px; color: var(--light-color); }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: var(--primary-color);
+      color: var(--light-color);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .cta-button:hover { background-color: #6cc7b3; transform: translateY(-3px); }
+    .contact-section { padding: 60px 0; background-color: var(--background-color); text-align: center; }
+    .contact-section h2 { margin-bottom: 20px; }
+    .contact-info { max-width: 600px; margin: 0 auto; font-size: 1.1rem; color: var(--text-color); }
+    .contact-info p { margin-bottom: 10px; }
+    footer { background-color: var(--accent-color); color: var(--light-color); text-align: center; padding: 20px 0; }
+    
+    @media (max-width: 768px) {
+      .founder-card { flex: 0 0 100%; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1.3rem; }
+      .value-card { flex: 0 0 100%; }
+      .values-grid { flex-direction: column; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.png.jpg" alt="My Little Steps Playschool Logo">
+          <h1>My Little Steps</h1>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="program.html">Programs</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="btn">Enroll Now</a></li>
+        </ul>
+        <div class="mobile-menu">☰</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container hero-content">
+      <h1>About My Little Steps Playschool</h1>
+      <p>Nurturing young minds and building a foundation for lifelong learning through play and exploration.</p>
+    </div>
+  </section>
+  
+  <!-- Welcome & School Vision Section -->
+  <section class="welcome-section">
+    <div class="container">
+      <h2 class="welcome-title">Welcome to Our Family</h2>
+      <div class="welcome-text">
+        <p>At My Little Steps Playschool, we believe every child deserves a nurturing start. Our environment is designed to foster creativity, curiosity, and confidence.</p>
+        <h3>Our School Vision</h3>
+        <p>We envision a place where every young learner is empowered to explore, create, and grow—laying the groundwork for a bright future.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Core Philosophy Section -->
+  <section class="philosophy-section">
+    <div class="container philosophy-container">
+      <div class="philosophy-image">
+        <img src="/api/placeholder/600/400" alt="Children engaged in playful learning" />
+      </div>
+      <div class="philosophy-content">
+        <h2 class="philosophy-title">Our Core Philosophy</h2>
+        <p>We believe that children learn best through play and exploration. Our curriculum blends structured learning with creative, hands-on activities that foster intellectual curiosity, social interaction, and emotional growth.</p>
+        <p>By encouraging experimentation and collaboration, we help build the critical thinking skills that form the foundation for future success.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Core Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <h2 class="values-title">Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-heart"></i></div>
+          <h3 class="value-title">Nurturing Care</h3>
+          <p>We create a warm, loving environment where every child feels safe, valued, and inspired to explore their potential.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h3 class="value-title">Play-Based Learning</h3>
+          <p>Learning through play is at the heart of our curriculum, sparking creativity and building foundational skills.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-users"></i></div>
+          <h3 class="value-title">Community</h3>
+          <p>We value strong partnerships with families and the community, working together to support every child’s growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Founders Section -->
+  <section class="founders-section">
+    <div class="container">
+      <h2 class="founders-title">Meet Our Founders</h2>
+      <div class="founders-container">
+        <div class="founder-card">
+          <img src="/api/placeholder/400/300" alt="Founder Shalini Bhardwaj" class="founder-image" />
+          <div class="founder-info">
+            <h3 class="founder-name">Shalini Bhardwaj </h3>
+            <p class="founder-title">Founder & Educational Director</p>
+            <p>With over 15 years in early childhood education, Sarah believes every child’s potential can flourish when nurtured with love and creativity. Her vision has shaped our holistic approach.</p>
+          </div>
+        </div>
+        <div class="founder-card">
+          <img src="images/swati.png" alt="Founder Swati Sharma " class="founder-image" />
+          <div class="founder-info">
+            <h3 class="founder-name">Swati Sharma</h3>
+            <p class="founder-title">Co-Founder & Community Director</p>
+            <p>Michael’s dedication to inclusive education and community engagement inspires our mission to create a supportive environment where every child can thrive.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Join Our My Little Steps Family</h2>
+      <p>We invite you to visit our playschool, meet our educators, and experience firsthand the nurturing environment we've created for your little ones.</p>
+      <a href="#" class="cta-button">Schedule a Visit</a>
+    </div>
+  </section>
+  
+  <!-- School Contact Information Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <p>12/892, Ground Floor
+           Friends Colony, Vasundhara, Ghaziabad</p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Email: mylittlesteps9@gmail.com</p>
+        <p>Hours: Monday-Friday, 7:30 AM - 5:30 PM</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 My Little Steps Playschool. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    document.querySelector('.mobile-menu').addEventListener('click', function() {
+      document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-menu a').forEach(anchor => {
+      anchor.addEventListener('click', function() {
+        document.querySelector('.nav-menu').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
+    

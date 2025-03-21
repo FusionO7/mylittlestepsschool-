@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs - My Little Steps Playschool</title>
+    <link rel="stylesheet" href="styles.css" /> <!-- Added to match index.html -->
+    <style>
+        /* Global Styles (unchanged from original) */
+        :root {
+            --primary-color: #8DD8CF;     /* Teal from logo background */
+            --secondary-color: #F8A77D;   /* Coral/peach from logo elements */
+            --accent-color: #0E2D40;      /* Dark navy from logo text and elements */
+            --background-color: #F9F2E2;  /* Cream background from logo */
+            --text-color: #333;
+            --light-color: #fff;
+            --font-primary: 'Nunito', 'Comic Sans MS', 'Marker Felt', sans-serif;  /* Rounded, playful font */
+            --font-secondary: 'Open Sans', 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-primary);
+            color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--light-color);
+            transform: translateY(-3px);
+        }
+
+        /* Header Styles (updated to match index.html and about.html) */
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #0E2D40;
+            margin-bottom: 0;
+            font-family: 'Nunito', 'Comic Sans MS', 'Marker Felt', sans-serif;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        .nav-menu li a {
+            font-family: 'Open Sans', 'Arial', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .nav-menu li a:hover {
+            color: #F8A77D;
+        }
+        .nav-menu .btn {
+            background-color: #F8A77D;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .nav-menu .btn:hover {
+            background-color: #0E2D40;
+            transform: translateY(-3px);
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 2rem;
+            color: #0E2D40;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fff;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 15px 0;
+                text-align: center;
+            }
+        }
+
+        /* Programs Banner (unchanged) */
+        .programs-banner {
+            height: 50vh;
+            background: linear-gradient(rgba(14, 45, 64, 0.7), rgba(14, 45, 64, 0.7)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light-color);
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .programs-banner::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23F9F2E2'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23F9F2E2'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23F9F2E2'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+            background-size: cover;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--light-color);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .banner-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 80%;
+            margin: 0 auto 30px;
+        }
+
+        /* Programs Styles (unchanged) */
+        .programs-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
+            position: relative;
+        }
+
+        .program-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .program-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .program-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .program-description {
+            margin-bottom: 80px;
+        }
+
+        .program-card {
+            background-color: var(--background-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .program-header {
+            padding: 30px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .program-header-text h3 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .program-header-text p {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .program-icon {
+            background-color: var(--light-color);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .program-icon img {
+            width: 45px;
+            height: 45px;
+        }
+
+        .program-body {
+            padding: 30px;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .program-features li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .program-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            background-color: rgba(141, 216, 207, 0.2);
+            padding: 8px 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .detail-item span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+
+        /* Benefits Section (unchanged) */
+        .benefits-section {
+            padding: 100px 0;
+            background-color: var(--background-color);
+            position: relative;
+        }
+
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .benefits-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .benefits-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefits-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 10px solid white;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 25px;
+            height: 25px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .benefit-item:nth-child(1)::before {
+            content: '1';
+        }
+
+        .benefit-item:nth-child(2)::before {
+            content: '2';
+        }
+
+        .benefit-item:nth-child(3)::before {
+            content: '3';
+        }
+
+        .benefit-item:nth-child(4)::before {
+            content: '4';
+        }
+
+        .benefit-item:nth-child(5)::before {
+            content: '5';
+        }
+
+        .benefit-item h4 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Call to Action (unchanged) */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            top: -100px;
+            left: -100px;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .cta h2 {
+            color: var(--light-color);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+
+        .cta .btn {
+            background-color: var(--light-color);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            padding: 15px 35px;
+            border: 2px solid var(--light-color);
+        }
+
+        .cta .btn:hover {
+            background-color: transparent;
+            color: var(--light-color);
+        }
+
+        /* Responsive Styles (unchanged except for nav) */
+        @media (max-width: 768px) {
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .program-title h2, .benefits-text h2, .cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .benefits-container {
+                flex-direction: column;
+            }
+            
+            .benefits-image {
+                order: -1;
+            }
+
+            .program-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+
+        /* Import Font (unchanged) */
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png.jpg" alt="My Little Steps Playschool Logo">
+                    <h1>My Little Steps</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="program.html">Programs</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn">Enroll Now</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Programs Banner -->
+    <section class="programs-banner">
+        <div class="banner-content">
+            <h1>Our Learning Programs</h1>
+            <p>Nurturing young minds through play-based learning, creative exploration, and personalized care.</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="program-title">
+                <h2>Specialized Programs for Each Age Group</h2>
+                <p>At My Little Steps Playschool, we believe every child is unique and deserves an education tailored to their developmental stage. Our age-appropriate programs are designed to foster cognitive, social, emotional, and physical growth in a safe, nurturing environment.</p>
+            </div>
+
+            <div class="program-description">
+                <!-- Day Care Program Card -->
+                <div class="program-card">
+                    <div class="program-header" style="background-color: var(--primary-color);">
+                        <div class="program-header-text">
+                            <h3>Toddler Program</h3>
+                            <p>Ages 2-3 Years</p>
+                        </div>
+                        <div class="program-icon">
+                            <img src="/api/placeholder/45/45" alt="Toddler Program Icon">
+                        </div>
+                    </div>
+                    <div class="program-body">
+                        <p>Our Toddler Program is specially designed for our youngest learners, ages 2-3 years. During these formative years, children experience rapid development in language, motor skills, and social abilities. Our nurturing environment provides the perfect balance of structure and freedom for toddlers to explore, learn, and grow.</p>
+                        
+                        <h4 style="margin-top: 20px; margin-bottom: 15px;">Program Features:</h4>
+                        <ul class="program-features">
+                            <li>Low child-to-teacher ratio (maximum 1:4) ensuring personalized attention</li>
+                            <li>Developmentally appropriate activities focusing on sensory exploration</li>
+                            <li>Introduction to basic concepts through play-based learning</li>
+                            <li>Daily language development exercises and storytelling sessions</li>
+                            <li>Fine and gross motor skill development through structured play</li>
+                            <li>Music, movement, and creative expression activities</li>
+                            <li>Potty training support in partnership with parents</li>
+                            <li>Socialization opportunities in small group settings</li>
+                        </ul>
+                        
+                        <p>Our toddler environments are thoughtfully designed with age-appropriate materials that encourage curiosity and independence. Each day includes a balance of teacher-led activities, free play, outdoor exploration, and rest time.</p>
+
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <span></span> Half-day: 8:30am-12:30pm
+                            </div>
+                            <div class="detail-item">
+                                <span></span> Full-day: 8:30am-3:30pm
+                            </div>
+                            <div class="detail-item">
+                                <span></span> Extended care available
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preschool Program Card -->
+                <div class="program-card">
+                    <div class="program-header" style="background-color: var(--secondary-color);">
+                        <div class="program-header-text">
+                            <h3>Preschool Program</h3>
+                            <p>Ages 3-5 Years</p>
+                        </div>
+                        <div class="program-icon">
+                            <img src="/api/placeholder/45/45" alt="Preschool Program Icon">
+                        </div>
+                    </div>
+                    <div class="program-body">
+                        <p>Our Preschool Program builds upon the foundational skills developed in our toddler program and prepares children ages 3-5 for kindergarten success. We implement a comprehensive curriculum that balances academic readiness with social-emotional development, creative expression, and physical activity.</p>
+                        
+                        <h4 style="margin-top: 20px; margin-bottom: 15px;">Program Features:</h4>
+                        <ul class="program-features">
+                            <li>Literacy-rich environment with reading and writing readiness activities</li>
+                            <li>Introduction to mathematical concepts through hands-on activities</li>
+                            <li>Science exploration and discovery through experiments and nature studies</li>
+                            <li>Project-based learning opportunities that follow children's interests</li>
+                            <li>Social studies and cultural awareness activities</li>
+                            <li>Development of self-regulation and problem-solving skills</li>
+                            <li>Technology introduction with supervised, educational screen time</li>
+                            <li>Art, music, and dramatic play opportunities for creative expression</li>
+                            <li>Physical education activities to develop coordination and strength</li>
+                        </ul>
+                        
+                        <p>Our preschool curriculum is designed to foster independence, critical thinking, and a lifelong love of learning. Children participate in both whole-group and small-group activities, with plenty of opportunities for individual choice and exploration.</p>
+
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <span></span> Half-day: 8:30am-12:30pm
+                            </div>
+                            <div class="detail-item">
+                                <span></span> Full-day: 8:30am-3:30pm
+                            </div>
+                            <div class="detail-item">
+                                <span></span> Extended care available
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="program-title">
+                <h2>Benefits for Parents & Children</h2>
+                <p>When you enroll your child at My Little Steps Playschool, both you and your child will experience numerous advantages that support your family's well-being and your child's development.</p>
+            </div>
+
+            <div class="benefits-container">
+                <div class="benefits-text">
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <h4>Early Social Development</h4>
+                            <p>Children learn essential social skills like sharing, taking turns, and cooperating with peers. These early friendships and social interactions lay the groundwork for healthy relationships throughout life.</p>
+                        </li>
+                        <li class="benefit-item">
+                            <h4>Academic Readiness</h4>
+                            <p>Our age-appropriate curriculum introduces foundational concepts in literacy, mathematics, and science, giving your child a head start for kindergarten and beyond.</p>
+                        </li>
+                        <li class="benefit-item">
+                            <h4>Consistent Routine & Structure</h4>
+                            <p>Children thrive with consistency. Our predictable daily schedule helps children feel secure while developing time-management skills and preparing them for the structure of elementary school.</p>
+                        </li>
+                        <li class="benefit-item">
+                            <h4>Professional Support & Guidance</h4>
+                            <p>Our experienced educators provide expert guidance on child development, behavior management, and educational best practices, offering parents valuable insights and support.</p>
+                        </li>
+                        <li class="benefit-item">
+                            <h4>Work-Life Balance</h4>
+                            <p>With flexible scheduling options and extended care hours, parents can maintain professional commitments while knowing their children are receiving quality care and education.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="benefits-image">
+                    <img src="/api/placeholder/500/400" alt="Happy children and parents at My Little Steps Playschool">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Give Your Child the Best Start</h2>
+            <p>Schedule a tour today and discover why My Little Steps Playschool is the perfect place for your child to learn, play, and grow.</p>
+            <a href="contact.html" class="btn">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-menu a').forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
