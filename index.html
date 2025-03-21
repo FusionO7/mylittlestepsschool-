@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Little Steps Playschool - Where Learning Begins</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Inline styles to match about.html nav bar exactly -->
+    <style>
+        header {
+            background-color: #fff;
+            padding: 1px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #0E2D40;
+            margin-bottom: 0;
+            font-family: 'Nunito', 'Comic Sans MS', 'Marker Felt', sans-serif;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        .nav-menu li a {
+            font-family: 'Open Sans', 'Arial', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .nav-menu li a:hover {
+            color: #F8A77D;
+        }
+        .nav-menu .btn {
+            background-color: #F8A77D;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .nav-menu .btn:hover {
+            background-color: #0E2D40;
+            transform: translateY(-3px);
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 2rem;
+            color: #0E2D40;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fff;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 15px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png.jpg" alt="My Little Steps Playschool Logo">
+                    <h1>My Little Steps</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="program.html">Programs</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn">Enroll Now</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero" id="home">
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide active">
+                    <div class="hero-content">
+                        <h1>Where Little Steps Lead to Big Futures</h1>
+                        <p>Providing quality early childhood education in a nurturing, playful environment that fosters cognitive, social, and emotional development.</p>
+                        <a href="#enroll" class="btn">Schedule a Tour</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="hero-content">
+                        <h1>Play-Based Learning Environment</h1>
+                        <p>Our curriculum encourages exploration and discovery through play, helping children develop essential skills while having fun.</p>
+                        <a href="#enroll" class="btn">Schedule a Tour</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="hero-content">
+                        <h1>Nurturing Young Minds Since 2010</h1>
+                        <p>Join our community of happy children and satisfied parents for a preschool experience that will set the foundation for your child's future.</p>
+                        <a href="#enroll" class="btn">Schedule a Tour</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <span class="slider-dot active" data-slide="0"></span>
+                <span class="slider-dot" data-slide="1"></span>
+                <span class="slider-dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Welcome to My Little Steps</h2>
+                    <p>At My Little Steps Playschool, we believe that every child is unique and deserves a personalized approach to learning. Our play-based curriculum is designed to nurture curiosity, creativity, and confidence in children aged 2-5 years.</p>
+                    <p>Established in 2010, our school provides a safe, stimulating environment where children can explore, discover, and grow at their own pace. Our experienced educators are passionate about early childhood development and committed to helping each child reach their full potential.</p>
+                    <a href="about.html" class="btn">Learn More About Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/first.png.jpg" alt="Happy children playing and learning">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Programs</h2>
+                <p>Discover our age-appropriate programs designed to meet the developmental needs of your child</p>
+            </div>
+            <div class="program-cards">
+                <div class="program-card">
+                    <img src="images/toddler1.png.png" alt="Toddler Program">
+                    <div class="program-card-content">
+                        <h3>Toddler Program</h3>
+                        <p>Ages 2-3 years</p>
+                        <p>A gentle introduction to school life focusing on social skills, language development, and sensory exploration.</p>
+                        <a href="program.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <img src="images/toddler2.png" alt="Preschool Program">
+                    <div class="program-card-content">
+                        <h3>Preschool Program</h3>
+                        <p>Ages 3-4 years</p>
+                        <p>Building on foundational skills with structured activities in literacy, numeracy, art, music, and physical development.</p>
+                        <a href="program.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <img src="images/toddler3.png" alt="Pre-K Program">
+                    <div class="program-card-content">
+                        <h3>Pre-K Program</h3>
+                        <p>Ages 4-5 years</p>
+                        <p>Preparing children for kindergarten with advanced concepts, problem-solving skills, and independent learning.</p>
+                        <a href="program.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Parents Say</h2>
+                <p>Read what our community of parents has to say about their experience with us</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"My daughter has flourished at My Little Steps. The teachers are incredible and the curriculum is both fun and educational. I couldn't ask for a better preschool experience."</p>
+                    </div>
+                    <div class="testimonial-author">- Sarah Johnson, Parent</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The attention to detail and personalized approach at My Little Steps is outstanding. My son went from being shy to confident and eager to learn in just a few months!"</p>
+                    </div>
+                    <div class="testimonial-author">- Michael Chen, Parent</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The staff at My Little Steps truly care about each child. They create a warm, nurturing environment that makes dropping off my twins each morning a joy rather than a worry."</p>
+                    </div>
+                    <div class="testimonial-author">- Emily Rodriguez, Parent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta" id="enroll">
+        <div class="container">
+            <h2>Ready to Join Our Family?</h2>
+            <p>Limited spots available for the upcoming school year. Schedule a tour
+
+ or apply for enrollment today!</p>
+            <a href="contact.html" class="btn">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>My Little Steps Playschool</h3>
+                    <p>Where learning begins with play and curiosity leads to discovery.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#enroll">Enrollment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p>12/892, Ground Floor</p>
+                        <p>Friends Colony, Vasundhara, Ghaziabad</p>
+                    </div>
+                    <div class="contact-info">
+                        <p>Phone: </p>
+                        <p>Email: mylittlesteps9@gmail.com</p>
+                    </div>
+                    <div class="contact-info">
+                        <p>Hours: Monday-Friday, 7:30 AM - 5:30 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 My Little Steps Playschool. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Hero Slider Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function showSlide(slideIndex) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+            currentSlide = slideIndex;
+        }
+
+        function nextSlide() {
+            let next = currentSlide + 1;
+            if (next >= totalSlides) next = 0;
+            showSlide(next);
+        }
+
+        function initSlider() {
+            showSlide(0);
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    showSlide(slideIndex);
+                    resetInterval();
+                });
+            });
+            startInterval();
+            document.querySelector('.slider-container').addEventListener('mouseenter', () => clearInterval(slideInterval));
+            document.querySelector('.slider-container').addEventListener('mouseleave', startInterval);
+        }
+
+        function startInterval() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        document.addEventListener('DOMContentLoaded', initSlider);
+    </script>
+</body>
+</html>

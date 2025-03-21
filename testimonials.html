@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimonials - My Little Steps Playschool</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Inline styles to match index.html and about.html nav bar -->
+  <style>
+    header {
+      background-color: #fff;
+      padding: 1px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      color: #0E2D40;
+      margin-bottom: 0;
+      font-family: 'Nunito', 'Comic Sans MS', 'Marker Felt', sans-serif;
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-menu li {
+      margin-left: 25px;
+    }
+    .nav-menu li a {
+      font-family: 'Open Sans', 'Arial', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #F8A77D;
+    }
+    .nav-menu .btn {
+      background-color: #F8A77D;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .nav-menu .btn:hover {
+      background-color: #0E2D40;
+      transform: translateY(-3px);
+    }
+    .mobile-menu {
+      display: none;
+      font-size: 2rem;
+      color: #0E2D40;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-menu li {
+        margin: 15px 0;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.png.jpg" alt="My Little Steps Playschool Logo">
+          <h1>My Little Steps</h1>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="program.html">Programs</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="btn">Enroll Now</a></li>
+        </ul>
+        <div class="mobile-menu">☰</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Parents Are Saying</h2>
+        <p>Hear from the families who are part of our vibrant community.</p>
+      </div>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"This school has truly transformed our child's life. The staff is incredibly caring and supportive."</p>
+          </div>
+          <div class="testimonial-author">
+            <span>John Doe</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"A perfect blend of academic rigor and creative learning. We are so grateful for the opportunities provided."</p>
+          </div>
+          <div class="testimonial-author">
+            <span>Jane Smith</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Our child loves coming to school every day. The environment is nurturing and fun."</p>
+          </div>
+          <div class="testimonial-author">
+            <span>Mark Wilson</span>
+          </div>
+        </div>
+        <!-- Add more testimonials as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h3>My Little Steps Playschool</h3>
+        <p>Our School is dedicated to fostering a nurturing environment where children can grow, learn, and thrive.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="program.html">Programs</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/YourSchool" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com/YourSchool" target="_blank">Twitter</a></li>
+          <li><a href="https://www.instagram.com/YourSchool" target="_blank">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/school/YourSchool" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2025 My Little Steps Playschool. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-menu a').forEach(anchor => {
+      anchor.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
